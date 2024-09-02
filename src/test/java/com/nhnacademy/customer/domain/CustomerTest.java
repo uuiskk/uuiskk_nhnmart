@@ -6,6 +6,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//TODO#1-12 CustomerTest가 동작 되도록 구현 합니다.
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CustomerTest {
 

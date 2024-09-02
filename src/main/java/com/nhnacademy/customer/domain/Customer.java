@@ -65,7 +65,7 @@ public class Customer {
                 '}';
     }
 
-    //TODO#1-10 customer객체 비교를 위해서(비교 기준은 id, name, money 일치) equals, hashCode method를 구현 합니다.
+    //TODO#1-10 customer객체 비교를 위해서(비교 기준은 id, name, money 일치)
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,6 +74,7 @@ public class Customer {
         return id == customer.id && money == customer.money && Objects.equals(name, customer.name);
     }
 
+    //TODO#1-11  (id, name, money) 기준으로 hashCode() 구현
     @Override
     public int hashCode() {
         return Objects.hash(id, name, money);
