@@ -6,7 +6,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//TODO#1-12 CustomerTest를 통과 해야 합니다.
+//CustomerTest를 통과 해야 합니다.
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CustomerTest {
 
@@ -29,18 +29,16 @@ class CustomerTest {
     @Test()
     @DisplayName("monry < 0")
     void testConstructor3(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->{
-            customer = new Customer(1l, "NHN아카데미",-1_0000);
-        });
+        //TODO#1-12 customer 생성시 money < 0 면 IllegalArgumentException이 발생하는지 금정 합니다.
+
     }
 
     @Order(3)
     @Test()
     @DisplayName("name is ( empty or null ) ")
     void testConstructor2(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->{
-            customer = new Customer(1l, "",100_000);
-        });
+        //TODO#1-13 - name이 "" or null 이면 IllegalArgumentException.class 예외가 발생하는지 검증 합니다.
+
     }
 
     @Order(4)
@@ -53,8 +51,8 @@ class CustomerTest {
     @Order(5)
     @Test
     void getName() {
-        String actual = customer.getName();
-        Assertions.assertEquals("NHN아카데미",actual);
+        //TODO#1-14 customer -> getName() 호출시  NHN아카데미 반환하는지 검증 합니다.
+
     }
 
     @Order(6)
@@ -86,9 +84,8 @@ class CustomerTest {
     @Test
     @DisplayName("customer money = 100만원, 200만원 결제 시도")
     void pay3(){
-        Assertions.assertThrows(InsufficientFundsException.class,()->{
-            customer.pay(200_0000);
-        });
+        //TODO#1-15 200만원 결제시 InsufficientFundsException.class 예외가 발생하는지 검증 합니다.
+
     }
 
     @Order(10)
