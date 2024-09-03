@@ -69,6 +69,7 @@ class EnteringQueueTest {
         });
         producer.start();
 
+        //TODO#3-12 2초 대기후 enteringQueue.getCustomer() 호출해서 소비할 수 있도록 consumer Thread를 구현 합니다.
         Thread consumer = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -83,8 +84,7 @@ class EnteringQueueTest {
         });
         consumer.start();
 
-        //TODO#3-12  producer or consumer 실행 중이라면 대기 합니다. yield()를 이용해서 구현하세요.
-
+        //TODO#3-13  producer or consumer 실행 중이라면 대기 합니다. yield()를 이용해서 구현하세요.
         while (producer.isAlive() || consumer.isAlive()){
             Thread.yield();
         }
