@@ -20,11 +20,6 @@ class EnteringQueueTest {
             1~99 고객을 생성 후 enteringQueue 대기열에 등록 합니다.
          */
 
-        for(int i=0; i<99; i++){
-            Customer customer = new Customer(i+1,String.format("NHN아카데미%d", i+1),100_0000);
-            log.debug("{}",customer);
-            enteringQueue.addCustomer(customer);
-        }
     }
 
     @Test
@@ -38,19 +33,14 @@ class EnteringQueueTest {
     void addCustomer() throws Exception {
         //TODO#3-10 id=100인 고객을 enteringQueue에 등록하고 검증 합니다.
         Customer customer = new Customer(100l, "NHN아카데미100",100_0000);
-        enteringQueue.addCustomer(customer);
-        int actual = enteringQueue.getQueueSize();
-        Assertions.assertEquals(100, actual);
+
     }
 
     @Test
     @DisplayName("queue - poll test")
     void getCustomer() {
         //TODO#3-11  enteringQueue에서 enteringQueue.getCustomer() 호출시 반환되는 값을 검증 합니다.
-        Customer actual = enteringQueue.getCustomer();
-        Customer excepted = new Customer(1l, "NHN아카데미1",100_0000);
-        Assertions.assertEquals(excepted,actual);
-        log.debug("customer:{}",actual);
+
     }
 
     @Test
@@ -70,27 +60,13 @@ class EnteringQueueTest {
         producer.start();
 
         //TODO#3-12 2초 대기후 enteringQueue.getCustomer() 호출해서 소비할 수 있도록 consumer Thread를 구현 합니다.
-        Thread consumer = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    //2초 대기 후 getCustomer()를 호출 합니다.
-                    Thread.sleep(2000);
-                    enteringQueue.getCustomer();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
-        consumer.start();
+        Thread consumer = null;
+
 
         //TODO#3-13  producer or consumer 실행 중이라면 대기 합니다. yield()를 이용해서 구현하세요.
-        while (producer.isAlive() || consumer.isAlive()){
-            Thread.yield();
-        }
+
 
         int actual = enteringQueue.getQueueSize();
-
         Assertions.assertEquals(100,actual);
     }
 }
