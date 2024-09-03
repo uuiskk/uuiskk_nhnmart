@@ -13,7 +13,7 @@ class EnteringQueueTest {
     void setUp() {
         enteringQueue = new EnteringQueue();
 
-        /*TODO#3-9
+        /*
             Customer{id=1, name='NHN아카데미1', money=1000000}
             ~
             Customer{id=99, name='NHN아카데미99', money=1000000}
@@ -36,7 +36,7 @@ class EnteringQueueTest {
 
     @Test
     void addCustomer() throws Exception {
-        //TODO#3-10 id=100인 고객을 enteringQueue에 등록하고 검증 합니다.
+        //id=100인 고객을 enteringQueue에 등록하고 검증 합니다.
         Customer customer = new Customer(100l, "NHN아카데미100",100_0000);
         enteringQueue.addCustomer(customer);
         int actual = enteringQueue.getQueueSize();
@@ -46,7 +46,7 @@ class EnteringQueueTest {
     @Test
     @DisplayName("queue - poll test")
     void getCustomer() {
-        //TODO#3-11  enteringQueue에서 enteringQueue.getCustomer() 호출시 반환되는 값을 검증 합니다.
+        //enteringQueue에서 enteringQueue.getCustomer() 호출시 반환되는 값을 검증 합니다.
         Customer actual = enteringQueue.getCustomer();
         Customer excepted = new Customer(1l, "NHN아카데미1",100_0000);
         Assertions.assertEquals(excepted,actual);
@@ -69,7 +69,7 @@ class EnteringQueueTest {
         });
         producer.start();
 
-        //TODO#3-12 2초 대기후 enteringQueue.getCustomer() 호출해서 소비할 수 있도록 consumer Thread를 구현 합니다.
+        // 2초 대기후 enteringQueue.getCustomer() 호출해서 소비할 수 있도록 consumer Thread를 구현 합니다.
         Thread consumer = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -84,7 +84,7 @@ class EnteringQueueTest {
         });
         consumer.start();
 
-        //TODO#3-13  producer or consumer 실행 중이라면 대기 합니다. yield()를 이용해서 구현하세요.
+        //producer or consumer 실행 중이라면 대기 합니다. yield()를 이용해서 구현하세요.
         while (producer.isAlive() || consumer.isAlive()){
             Thread.yield();
         }
