@@ -8,10 +8,10 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class ProductIdGenerator {
 
     //TODO#6-3-1 idGenerator를 0으로 초기화 합니다.
-    private final static AtomicLong idGenerator = new AtomicLong(0);
+    private final static AtomicLong idGenerator =   null;
 
     public static long getNewId(){
         //TODO#6-3-2 idGenerator를 1증가시키고 반환 합니다.
-        return idGenerator.incrementAndGet();
+        return  0l;
     }
 }

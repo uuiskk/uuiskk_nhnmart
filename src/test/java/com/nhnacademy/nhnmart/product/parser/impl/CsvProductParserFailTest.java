@@ -12,8 +12,9 @@ import java.io.InputStream;
 public class CsvProductParserFailTest {
 
     @Test
-    @DisplayName("product_data_fail.csv 형식이 잘못됨")
+    @DisplayName("product_data_fail.csv price {int->bigint} 변경")
     void parcingFailTest() throws IOException {
+
         /*TODO#6-2-10 /test/resources/product_data_fail.csv 파일을 기준으로 parcing 합니다.
            - 제품의 가격이 99000000000000000000000000000000 파싱에 실패 합니다.
            - CsvParsingException.class 예외가 발생할 수 있도록 검증 합니다.
@@ -25,15 +26,6 @@ public class CsvProductParserFailTest {
                         .getResourceAsStream(PRODUCTS_DATA);
             }
         */
-        Assertions.assertThrows(CsvParsingException.class,()->{
-            try(
-                InputStream inputStream = this.getClass()
-                        .getClassLoader()
-                        .getResourceAsStream("product_data_fail.csv");
-                ProductParser productParser = new CsvProductParser(inputStream);
-            ){
-                productParser.parse();
-            }
-        });
+
     }
 }
