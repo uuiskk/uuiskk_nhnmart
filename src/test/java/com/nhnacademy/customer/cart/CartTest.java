@@ -1,7 +1,6 @@
 package com.nhnacademy.customer.cart;
 
-import com.nhnacademy.customer.exception.ProductAlreadyExistsException;
-import lombok.Synchronized;
+import com.nhnacademy.nhnmart.product.exception.ProductAlreadyExistsException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,11 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.RandomAccess;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CartTest {
 

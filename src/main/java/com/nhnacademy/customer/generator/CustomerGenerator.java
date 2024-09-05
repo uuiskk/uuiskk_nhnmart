@@ -21,15 +21,15 @@ public class CustomerGenerator implements Runnable {
     private final AtomicLong atomicId;
 
     //회원이 보유한 default money
-    private final static int DEFAULT_MONEY=10_00000;
+    private final static int DEFAULT_MONEY=100_0000;
 
     public CustomerGenerator(EnteringQueue enteringQueue) {
-        //TODO#4-1 enteringQueue null 이면 'IllegalArgumentException' 발생하는지 검증 합니다.
+        //enteringQueue null 이면 'IllegalArgumentException' 발생하는지 검증 합니다.
         if(Objects.isNull(enteringQueue)){
             throw new IllegalArgumentException("enteringQueue is null!");
         }
 
-        //TODO#4-2 enteringQueue, atomicId 를 0으로 초기화 합니다.
+        //enteringQueue, atomicId 를 0으로 초기화 합니다.
         this.enteringQueue = enteringQueue;
         atomicId=new AtomicLong(0);
 
@@ -38,7 +38,7 @@ public class CustomerGenerator implements Runnable {
     @Override
     public void run() {
 
-        /*TODO#4-4 generate() method를 이용해서 customer를 생성하고 enteringQueue에 등록 합니다.
+        /*generate() method를 이용해서 customer를 생성하고 enteringQueue에 등록 합니다.
             - while 조건을 수정하세요.
         */
         while (!Thread.currentThread().isInterrupted()){
@@ -57,7 +57,7 @@ public class CustomerGenerator implements Runnable {
 
     private Customer generate(){
 
-        /*TODO#4-3 Customer 객체를 생성 후 반환 합니다.
+        /*Customer 객체를 생성 후 반환 합니다.
             - customer->id 는 atomicId를 사용하여 구현
             - 회원이름은 random으로 생성 됩니다.
                - 회원이름 생성시 https://github.com/Devskiller/jfairy 이용해서 구현 합니다.
