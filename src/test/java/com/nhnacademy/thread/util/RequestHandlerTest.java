@@ -26,13 +26,13 @@ class RequestHandlerTest {
         RequestChannel requestChannel = new RequestChannel();
         RequestHandler requestHandler = new RequestHandler(requestChannel);
 
-        AtomicInteger couter = new AtomicInteger();
+        AtomicInteger counter = new AtomicInteger();
 
         //TODO#8-3-7  couter.incrementAndGet(); 호출하는 countExecutable 구현 합니다.
         Executable countExecutable = new Executable() {
             @Override
             public void execute() throws InterruptedException {
-                int count = couter.incrementAndGet();
+                int count = counter.incrementAndGet();
                 log.debug("count:{}",count);
             }
         };
@@ -59,9 +59,9 @@ class RequestHandlerTest {
             Thread.yield();
         }
 
-        log.debug("counter:{}", couter.get());
+        log.debug("counter:{}", counter.get());
 
-        Assertions.assertEquals(5,couter.get());
+        Assertions.assertEquals(5,counter.get());
     }
 
 }
