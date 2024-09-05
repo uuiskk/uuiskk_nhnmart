@@ -31,12 +31,12 @@ public class Product {
     private int quantity;
 
     public Product(long id, String item, String maker, String specification, String unit, int price, int quantity) {
-        //TODO#6-1-1 product 생성자의 parameter 검증을 통과하지 못한다면 IllegalArgumentException이 발생 됩니다.
+        //product 생성자의 parameter 검증을 통과하지 못한다면 IllegalArgumentException이 발생 됩니다.
         if( id< 0 || price < 0 || quantity < 0 || StringUtils.isEmpty(item) || StringUtils.isEmpty(maker) || StringUtils.isEmpty(specification) || StringUtils.isEmpty(unit) ){
             throw new IllegalArgumentException();
         }
 
-        //TODO#6-1-2 product attribute를 초기화 합니다.
+        //product attribute를 초기화 합니다.
         this.id = id;
         this.item = item;
         this.maker = maker;
@@ -47,49 +47,49 @@ public class Product {
     }
 
     public long getId() {
-        //TODO#6-1-3 product id 반환
+        //product id 반환
         return id;
     }
 
     public String getItem() {
-        //TODO#6-1-4 item 반환
+        //item 반환
         return item;
     }
 
     public String getMaker() {
-        //TODO#6-1-5 maker 반환
+        //maker 반환
         return maker;
     }
 
     public String getSpecification() {
-        //TODO#6-1-6 specification 반환
+        //specification 반환
         return specification;
     }
 
     public String getUnit() {
-        //TODO#6-1-7 unit 반환
+        //unit 반환
         return unit;
     }
 
     public int getPrice() {
-        //TODO#6-1-8 price 반환
+        //price 반환
         return price;
     }
 
     public int getQuantity() {
-        //TODO#6-1-9 quantity 반환
+        //quantity 반환
         return quantity;
     }
 
     public void setQuantity(int quantity) {
-        //TODO#6-1-10 qunatity 수정, quantity < 0 이면 IllegalArgumentException 발생
+        //qunatity 수정, quantity < 0 이면 IllegalArgumentException 발생
         if(quantity < 0 ){
             throw new IllegalArgumentException("quantity >=0");
         }
         this.quantity = quantity;
     }
 
-    //TODO#6-1-11 equals를 구현 합니다.
+    //equals를 구현 합니다.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,7 +98,7 @@ public class Product {
         return id == product.id && price == product.price && quantity == product.quantity && Objects.equals(item, product.item) && Objects.equals(maker, product.maker) && Objects.equals(specification, product.specification) && Objects.equals(unit, product.unit);
     }
 
-    //TODO#6-1-12 hashCode를 구현합니다.
+    //hashCode를 구현합니다.
     @Override
     public int hashCode() {
         return Objects.hash(id, item, maker, specification, unit, price, quantity);
