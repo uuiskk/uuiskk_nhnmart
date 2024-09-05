@@ -37,9 +37,7 @@ class ThreadPoolTest {
     @DisplayName("poolsize < 0")
     void constructorTest1(){
         //TODO#8-1-9 poolsize <0  IllegalArgumentException 발생하는지 검증 합니다.
-        Assertions.assertThrows(IllegalArgumentException.class,()->{
-           new ThreadPool(-1,()->{});
-        });
+
     }
 
     @Test
@@ -47,9 +45,7 @@ class ThreadPoolTest {
     @DisplayName("runnable  parameter check ")
     void constructorTest2(){
         //TODO#8-1-10 runable parameter null 이면 IllegalArgumentException 발생하는지 검증 합니다.
-        Assertions.assertThrows(IllegalArgumentException.class,()->{
-            new ThreadPool(1,null);
-        });
+
     }
     @Test
     @Order(3)
@@ -59,7 +55,7 @@ class ThreadPoolTest {
         List<Thread> threadList = (List<Thread>) readFieldValue.get();
 
         //TODO#8-1-11 기본 생성자로 생성한  threadList poolSize가 10으로 생성되었는지 검증 합니다.
-        Assertions.assertEquals(10,threadList.size());
+
     }
 
     @Test
@@ -75,9 +71,7 @@ class ThreadPoolTest {
 
         //TODO#8-1-12 threadList의 각각의 thread가 isAlive()면 aliveCount++ 될 수 있또록 구현
         for(Thread thread : threadList){
-            if(thread.isAlive()){
-                aliveCount ++;
-            }
+            //구현
         }
         log.debug("aliveCount:{}",aliveCount);
         Assertions.assertEquals(10,aliveCount);
@@ -96,9 +90,7 @@ class ThreadPoolTest {
 
         //TODO#8-1-13 threadList의 각각의 thread의 상태가 TERMINATED이면 terminatedCount++ 될 수 있도록 구현 합니다.
         for(Thread thread : threadList){
-            if(thread.getState().equals(Thread.State.TERMINATED)){
-                terminatedCount ++;
-            }
+            //구현
         }
 
         log.debug("terminatedCount:{}",terminatedCount);
