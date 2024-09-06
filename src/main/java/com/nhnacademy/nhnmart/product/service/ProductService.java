@@ -16,7 +16,8 @@ public interface ProductService {
     //제품의 수량을 수정 한다.
     void updateQuantity(long id, int quantity);
 
-    //제품을 들어서 카트에 담는다.
+    //제품을 들어서 카트에 담을 때 해당 제품의 수량을 차감 합니다.
+    //quantity는 구매 수량 입니다.
     void pickProduct(long id, int quantity);
 
     //제품을 반납 합니다. 반납된 수량을 더한 수량 반환
