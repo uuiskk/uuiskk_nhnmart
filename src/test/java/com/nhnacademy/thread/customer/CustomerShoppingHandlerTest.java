@@ -16,7 +16,6 @@ import java.lang.reflect.Method;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
 
 @Slf4j
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -51,21 +50,7 @@ class CustomerShoppingHandlerTest {
         //-enteringQueue, productService, checkoutChannel
 
         Assertions.assertAll(
-                ()->{
-                    Assertions.assertThrows(IllegalArgumentException.class,()->{
-                        new CustomerShoppingHandler(null,productService,checkoutChannel);
-                    });
-                },
-                ()->{
-                    Assertions.assertThrows(IllegalArgumentException.class,()->{
-                        new CustomerShoppingHandler(enteringQueue,null,checkoutChannel);
-                    });
-                },
-                ()->{
-                    Assertions.assertThrows(IllegalArgumentException.class,()->{
-                        new CustomerShoppingHandler(enteringQueue,productService,null);
-                    });
-                }
+
         );
     }
 
@@ -88,7 +73,6 @@ class CustomerShoppingHandlerTest {
         //TODO#9-1-12 Mokito.verify()를 이용해서 checkoutChannel.addRequest() 1회 호출되었는지 검증 합니다.
         //checkoutChannel.addRequest() 호출해서 결제 대기열에 등록합니다.
 
-        Mockito.verify(checkoutChannel,Mockito.times(1)).addRequest(any());
     }
 
     @Test
@@ -110,7 +94,7 @@ class CustomerShoppingHandlerTest {
         log.debug("{actual:{}}",actual);
 
         //TODO#9-1-13 1<= actual <= 5 검증 합니다.
-        Assertions.assertTrue(actual>=1 && actual<=5);
+
     }
 
     @Test
@@ -129,7 +113,7 @@ class CustomerShoppingHandlerTest {
         log.debug("{actual:{}}",actual);
 
         //TODO#9-1-14 1<= actual <= 10 검증 합니다.
-        Assertions.assertTrue(actual>=1 && actual<=10);
+
     }
 
     @Test
@@ -152,7 +136,7 @@ class CustomerShoppingHandlerTest {
         log.debug("totalCount:{}, actual:{}",totalCount, actual);
 
         //TODO#9-1-15 actual < = totalCount 인지 검증 합니다.
-        Assertions.assertTrue(actual<=totalCount);
+
     }
 
 }
