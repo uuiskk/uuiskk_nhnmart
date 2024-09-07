@@ -92,7 +92,7 @@ public class CustomerShoppingTest {
         //쇼핑 후 장바구니에 제품이 담긴다.
         log.debug("cart item size : {} ", CartLocal.getCart().getCartItems().size());
 
-        //TODO#9-1-16 카트에 담긴 제품 수 - CartLocal.getCart().getCartItems().size() > 0 검증 합니다.
+        //카트에 담긴 제품 수 - CartLocal.getCart().getCartItems().size() > 0 검증 합니다.
         Assertions.assertTrue(CartLocal.getCart().getCartItems().size()>0);
 
         //제품을 들어서 카트에 담는다. -> 즉 제품의 수량 감소
@@ -106,7 +106,7 @@ public class CustomerShoppingTest {
 
         CartLocal.initialize(new Customer(1l,"NHN아카데미1",100_0000));
 
-        /*TODO#9-1-17 product id가 1인 제품을 장바구니에 추가 합니다. 수량은 5로 설정 합니다.
+        /*product id가 1인 제품을 장바구니에 추가 합니다. 수량은 5로 설정 합니다.
           - new CartItem()
         */
         CartLocal.getCart().tryAddItem(new CartItem(1l,5));
@@ -124,7 +124,7 @@ public class CustomerShoppingTest {
                 .filter(o->o.getProductId()==1l)
                 .findFirst();
 
-         //TODO#9-1-18 productOptional.get().getQuantity() 호출 후 수량이 5인지 검증 합니다.
+         //productOptional.get().getQuantity() 호출 후 수량이 5인지 검증 합니다.
          // - id가 1인 product는 이미 장바구니에 존재하고 있어 추가되지 않습니다.
         Assertions.assertEquals(5,productOptional.get().getQuantity());
 

@@ -36,12 +36,12 @@ public class CustomerShoppingHandler implements Runnable {
 
     public CustomerShoppingHandler(EnteringQueue enteringQueue, ProductService productService, RequestChannel checkoutChannel) {
 
-        //TODO#9-1-1 enteringQueue, productService, checkoutChannel null check, IllegalArgumentException 발생
+        //enteringQueue, productService, checkoutChannel null check, IllegalArgumentException 발생
         if(Objects.isNull(enteringQueue) || Objects.isNull(productService) || Objects.isNull(checkoutChannel)){
             throw new IllegalArgumentException();
         }
 
-        //TODO#9-1-2 enteringQueue, productService,checkoutChannel,generator 초기화 합니다.
+        //enteringQueue, productService,checkoutChannel,generator 초기화 합니다.
         this.enteringQueue = enteringQueue;
         this.productService = productService;
         this.checkoutChannel = checkoutChannel;
@@ -54,7 +54,7 @@ public class CustomerShoppingHandler implements Runnable {
         while(!Thread.currentThread().isInterrupted()){
             try {
 
-                /*TODO#9-1-3 enteringQueue 대기열에 있는 고객이 마트에 입장 합니다.
+                /*enteringQueue 대기열에 있는 고객이 마트에 입장 합니다.
                    CartManager.initialize를 호출해서 해당 Thread내에서 Customer(고객), Cart(장바구니) 공유될 수 있도록 설정 합니다.
                  */
 
@@ -65,7 +65,7 @@ public class CustomerShoppingHandler implements Runnable {
                 CartLocal.initialize(customer);
 
 
-                //TODO#9-1-4 1~10초 랜덤하게 sleep 합니다.
+                //1~10초 랜덤하게 sleep 합니다.
                 int s = generator.nextInt(1,11);
                 Thread.sleep(s*1000);
 
@@ -83,14 +83,14 @@ public class CustomerShoppingHandler implements Runnable {
                 }
                 log.debug("shopping : {}",e.getMessage(),e);
             }finally {
-                //TODO#9-1-5 해당 Thread는 checkoutChannel(결제 대기열)에 등록 후 customerLocal, cartLocal 초기화
+                //해당 Thread는 checkoutChannel(결제 대기열)에 등록 후 customerLocal, cartLocal 초기화
                 CartLocal.reset();
             }
         }
     }
 
     private void shopping(){
-        /*TODO#9-1-6 shopping method 구현
+        /*shopping method 구현
             - 제품 : getProductIdByRand()
             - 쇼핑 횟수 : getShoppingCountByRand()
             - 장바구에 담을 제품의 수량 : getBuyCountByRand()
@@ -126,7 +126,7 @@ public class CustomerShoppingHandler implements Runnable {
     }
 
     public void joinCheckoutChannel(){
-        /*TODO#9-1-7 쇼핑 후 결제 대기열 등록
+        /*쇼핑 후 결제 대기열 등록
             - checkoutChannel을 이용해서 SelfCheckoutRequest 요청을 등록 합니다.
          */
 
@@ -137,17 +137,17 @@ public class CustomerShoppingHandler implements Runnable {
     }
 
     private int getBuyCountByRand(){
-        //TODO#9-1-8 장바구니에 담는 제품의 수량 1-5 random 숫자 반환
+        //장바구니에 담는 제품의 수량 1-5 random 숫자 반환
         return generator.nextInt(1,6);
     }
 
     private int getShoppingCountByRand(){
-        //TODO#9-1-9 장바구니에 담는 제품의 개수 1-10 random 숫자 반환
+        //장바구니에 담는 제품의 개수 1-10 random 숫자 반환
         return generator.nextInt(1,11);
     }
 
     private long getProductIdByRand(){
-        //TODO#9-1-10 쇼핑할 제품의 id - 1 ~ productService.gettotalCount() 범위의 random 숫자 반환
+        //쇼핑할 제품의 id - 1 ~ productService.gettotalCount() 범위의 random 숫자 반환
         long productCount = productService.getTotalCount();
         return generator.nextLong(1l,productCount+1);
     }
