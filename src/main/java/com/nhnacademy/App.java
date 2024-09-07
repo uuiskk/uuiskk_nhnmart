@@ -61,10 +61,6 @@ public class App
         try {
             Thread.sleep(10000);
             enteringThread.interrupt();
-            enteringThread.join();
-
-            Thread.sleep(2000);
-
             shoppingThreadPool.stop();
 
            // checkOutThreadPool.stop();
