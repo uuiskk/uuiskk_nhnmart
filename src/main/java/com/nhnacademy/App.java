@@ -35,8 +35,6 @@ public class App
         //ProductServiceImpl 구현체를 이용해서 ProductService 객체를 생성 합니다.
         ProductService productService = new ProductServiceImpl(productRepository,productParser);
 
-
-
         /*
             쇼핑은 동시에 최대 10명까지 할 수 있습니다.
             CartStore에서 cart를 대여 한다.
@@ -51,13 +49,12 @@ public class App
         Runnable customerRunnable = null;
         ThreadPool shoppingThreadPool = null;
 
-
         //checkout을 하기위한 threadPool을 생성 합니다. poolSize =3 , 즉 동시에 3군대서 계산을 진행할 수 있습니다.
         RequestHandler requestHandler = null;
         ThreadPool checkOutThreadPool = null;
 
         // 60초 후 종료 됩니다.
         // enteringThread, shoppingThreadPool, checkOutThreadPool
-        
+
     }
 }
