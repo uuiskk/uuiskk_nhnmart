@@ -38,7 +38,7 @@ public class App
 
 
         /*
-            쇼핑은 동시에 최대 5명까지 할 수 있습니다.
+            쇼핑은 동시에 최대 10명까지 할 수 있습니다.
             CartStore에서 cart를 대여 한다.
             cart를 대여 후 쇼핑을 한다.
             쇼핑이 완료되면 계산을 할 수 있도록 대기 한다.
@@ -55,17 +55,18 @@ public class App
         //checkout을 하기위한 threadPool을 생성 합니다. poolSize =3 , 즉 동시에 3군대서 계산을 진행할 수 있습니다.
         RequestHandler requestHandler = new RequestHandler(checkoutChannel);
         ThreadPool checkOutThreadPool = new ThreadPool(3,requestHandler);
-        //checkOutThreadPool.start();
+        checkOutThreadPool.start();
 
         // 60초 후 종료 됩니다.
+        // enteringThread, shoppingThreadPool, checkOutThreadPool
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000*60);
             enteringThread.interrupt();
             shoppingThreadPool.stop();
-
-           // checkOutThreadPool.stop();
+            checkOutThreadPool.stop();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
     }
 }
