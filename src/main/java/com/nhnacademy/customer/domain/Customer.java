@@ -63,7 +63,7 @@ public class Customer {
             throw new InsufficientFundsException();
         }
         //TODO#1-8 method를 구현 합니다. money에서 amount 만큼 차감 합니다.
-
+        this.money = money - amount;
 
         log.debug("customer: {}, pay : {}", this, amount);
     }
@@ -72,7 +72,7 @@ public class Customer {
     public String toString() {
         //TODO#1-9 id, name, money 반환될 수 있도록 구현 합니다.
 
-        return "";
+        return "id :" + id + ", name:" + name + ", money:" + money;
     }
 
     //TODO#1-10 customer객체 비교를 위해서(비교 기준은 id, name, money 일치)
