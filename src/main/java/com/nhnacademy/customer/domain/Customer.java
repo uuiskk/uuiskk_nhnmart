@@ -28,26 +28,29 @@ public class Customer {
 
     public Customer(long id, String name, int money) {
         //TODO#1-1 id < 1 or name null or ""  or money <0 이면 IllegalArgumentException 이 발생 합니다.
-
+        if(id < 1 || name.isEmpty() || name.isBlank() || money < 0) {
+            throw new IllegalArgumentException();
+        }
 
         //TODO#1-2 id,name, money를 초기화 합니다.
-        this.id=0;
-        this.name="";
+        this.id= id;
+        this.name= name;
+        this.money = money;
     }
 
     public long getId() {
         //TODO#1-3 method를 구현하세요, id를 반환 합니다.
-        return 0;
+        return id;
     }
 
     public String getName() {
         //TODO#1-4 method를 구현하세요, name을 반환 합니다.
-        return "";
+        return name;
     }
 
     public int getMoney() {
         //TODO#1-5 method를 구현하세요, money를 반환 합니다.
-        return 0;
+        return money;
     }
 
     public void pay(int amount) throws InsufficientFundsException {
