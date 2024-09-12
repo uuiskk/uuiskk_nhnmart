@@ -78,12 +78,19 @@ public class Customer {
     //TODO#1-10 customer객체 비교를 위해서(비교 기준은 id, name, money 일치)
     @Override
     public boolean equals(Object o) {
-        return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Customer customer = (Customer) o;
+        return id == customer.id && money == customer.money && Objects.equals(name, customer.name);
     }
 
     //TODO#1-11  (id, name, money) 기준으로 hashCode() 구현
     @Override
     public int hashCode() {
-        return 0;
+        return Objects.hash(id, name, money);
     }
 }
