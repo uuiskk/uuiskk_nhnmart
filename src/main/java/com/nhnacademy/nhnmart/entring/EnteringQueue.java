@@ -60,10 +60,9 @@ public class EnteringQueue {
                 throw new RuntimeException(e);
             }
         }
-        queue.add(customer);
-
 
         //TODO#3-5 queue에 고객을 추가하고 대기하고 있는 Thread를 깨웁니다.
+        queue.add(customer);
         notifyAll();
         
     }
@@ -87,5 +86,4 @@ public class EnteringQueue {
     public int getQueueSize(){
         return queue.size();
     }
-
 }
