@@ -57,6 +57,7 @@ class CartTest {
     @DisplayName("장바구니에 제품이 이미 추가되어 있따면 - ProductAlreadyExistsException 발생")
     void tryAddItem2() throws ProductAlreadyExistsException {
         //TODO#2-12 DisplayName에 작성된 요구사항이 만족하도록 검증 합니다.
+        CartItem cartItem = new CartItem(1l,1);
 
     }
 
