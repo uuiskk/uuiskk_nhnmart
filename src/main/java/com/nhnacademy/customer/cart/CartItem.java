@@ -52,7 +52,7 @@ public class CartItem implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CartItem cartItem = (CartItem) o;
-        return productId == cartItem.productId && quantity == cartItem.quantity && Objects.equals(productId, quantity);
+        return productId == cartItem.productId && quantity == cartItem.quantity;
     }
 
     //TODO#2-11 (projectId, quantity)를 기준으로 hashCode() 구현
