@@ -37,11 +37,13 @@ public class CustomerGenerator implements Runnable {
 
     public CustomerGenerator(EnteringQueue enteringQueue) {
         //TODO#4-1 enteringQueue null 이면 'IllegalArgumentException' 발생하는지 검증 합니다.
-
+        if(enteringQueue == null) {
+            throw new IllegalArgumentException();
+        }
 
         //TODO#4-2 enteringQueue, atomicId 를 0으로 초기화 합니다.
-        this.enteringQueue = null;
-        atomicId=null;
+        this.enteringQueue = enteringQueue;
+        atomicId= new AtomicLong(0);
 
     }
 
@@ -52,8 +54,14 @@ public class CustomerGenerator implements Runnable {
             - while 조건을 수정하세요.
             - 1초 간격으로 회원을 entringQueue의 대기열에 등록 합니다.
         */
-        while (true){
+        while (){
             //1초 간격으로 회원을 entringQueue의 대기열에 등록 합니다.
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
         }
     }
 
