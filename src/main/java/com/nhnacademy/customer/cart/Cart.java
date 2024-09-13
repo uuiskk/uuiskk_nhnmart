@@ -32,7 +32,7 @@ public class Cart implements Serializable {
 
     public void tryAddItem(CartItem cartItem) throws ProductAlreadyExistsException {
         //TODO#2-2 장바구니에 아이템이 이미 존재 한다면, ProductAlreadyExistsException 예외가 발생 합니다.
-        if(cartItems.contains(cartItems)) {
+        if(cartItems.contains(cartItem)) {
             throw new ProductAlreadyExistsException(cartItem.getProductId());
         }
 
