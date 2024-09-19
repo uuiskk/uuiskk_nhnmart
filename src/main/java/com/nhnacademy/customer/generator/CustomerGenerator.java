@@ -54,10 +54,14 @@ public class CustomerGenerator implements Runnable {
             - while 조건을 수정하세요.
             - 1초 간격으로 회원을 entringQueue의 대기열에 등록 합니다.
         */
-        while (){
+        while (!Thread.currentThread().isInterrupted()){
             //1초 간격으로 회원을 entringQueue의 대기열에 등록 합니다.
             try{
                 Thread.sleep(1000);
+
+                Customer customer = generate();
+                enteringQueue.addCustomer(customer);
+                log.debug("Customer generated: {}", customer);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -73,7 +77,11 @@ public class CustomerGenerator implements Runnable {
                - 회원이름 생성시 https://github.com/Devskiller/jfairy 이용해서 구현 합니다.
          */
 
-        Customer customer = null;
+        Fairy fairy = Fairy.create();
+        Person person = fairy.person();
+        long id = atomicId.incrementAndGet();
+        String name = person.getFullName();
+        Customer customer = new Customer(id,name,DEFAULT_MONEY);
         return customer;
     }
 }
