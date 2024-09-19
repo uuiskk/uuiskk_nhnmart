@@ -38,6 +38,15 @@ public class CsvProductParserFailTest {
                         .getResourceAsStream(PRODUCTS_DATA);
             }
         */
-
+        Assertions.assertThrows(CsvParsingException.class,()->{
+            try(
+                    InputStream inputStream = this.getClass()
+                            .getClassLoader()
+                            .getResourceAsStream("product_data_fail.csv");
+                    ProductParser Parser = new CsvProductParser(inputStream);
+            ){
+                Parser.parse();
+            }
+        });
     }
 }
