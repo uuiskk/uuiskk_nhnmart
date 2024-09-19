@@ -41,6 +41,7 @@ class CustomerGeneratorTest {
         //TODO#4-7 enteringQueue == null 이면 IllegalArgumentException 발생 하는지 검증 합니다.
         Assertions.assertThrows(IllegalArgumentException.class,()->{
             new CustomerGenerator(null);
+
         });
     }
 
