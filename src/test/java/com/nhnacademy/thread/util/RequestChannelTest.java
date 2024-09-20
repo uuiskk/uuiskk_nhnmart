@@ -126,5 +126,4 @@ class RequestChannelTest {
 
         thread.interrupt();
     }
-
 }

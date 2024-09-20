@@ -36,6 +36,7 @@ public class RequestHandler implements Runnable {
         /*TODO#8-3-3 while 조건문을 수정 하세요
             - interrupt가 발생하면 while문이 종료 되면서 thread를 빠져 나가게 됩니다.
          */
+
         while(!Thread.currentThread().isInterrupted()){
             try{
                 //TODO#8-3-4 channel.getRequest()를 호출해서 execute() method를 실행 합니다.

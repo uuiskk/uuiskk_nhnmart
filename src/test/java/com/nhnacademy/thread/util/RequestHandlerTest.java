@@ -77,5 +77,4 @@ class RequestHandlerTest {
 
         Assertions.assertEquals(5,counter.get());
     }
-
 }

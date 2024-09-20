@@ -114,7 +114,6 @@ class ThreadPoolTest {
                 terminatedCount++;
             }
         }
-
         log.debug("terminatedCount:{}",terminatedCount);
         Assertions.assertEquals(10,terminatedCount);
     }

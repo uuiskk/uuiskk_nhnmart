@@ -65,7 +65,6 @@ public class RequestChannel {
                 throw new RuntimeException(e);
             }
         }
-
         //TODO#8-2-7 requestQueue에서 Executable(작업)을 반환 하고 , 대기하고 있는 thread를 깨웁 니다.
         notifyAll();
         return requestQueue.poll();

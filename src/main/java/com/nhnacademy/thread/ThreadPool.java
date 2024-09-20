@@ -94,7 +94,6 @@ public class ThreadPool {
                 thread.interrupt();
             }
         }
-
         //TODO#8-1-8 join()를 이용해서 모든 thread가 종료될 떄 까지 대기 상태로 만듭니다.
         for(Thread thread : threadList){
             //궈현
